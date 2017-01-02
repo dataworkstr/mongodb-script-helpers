@@ -9,6 +9,9 @@
 * [Prototype](#prototype)
     * [Array.prototype.getUnique](#Array.prototype.getUnique)
     * [Array.prototype.stringToObjectId](#Array.prototype.stringToObjectId)
+
+* [String](#string)
+    * [string_slug](#string_slug)    
     
 <a name="arrays"/>
 ## Arrays
@@ -53,6 +56,26 @@ Array.getUnique()
 	 * @return array
 */
 Array.stringToObjectId()
+```
+
+<a name="string"/>
+## String
+
+<a name="string_slug"/>
+### string_slug
+
+
+```javascript
+/**
+	 * The string_slug function generates a URL friendly "slug" from the given string:
+       
+
+	 *
+	 * @param  string  value
+	 * @param  string  separator
+	 * @return string
+*/
+function string_slug(value,separator)
 ```
 
 ![Yellow Pages](https://s3-eu-west-1.amazonaws.com/yptr/media/2MeNgXPPX6dNBVAnv3nD.png)(https://yellowpages.com.tr/)

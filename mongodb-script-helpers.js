@@ -1,9 +1,11 @@
-//! moment.js
-//! version : 1.0s
+//! mongodb-script-helpers
+//! version : 1.1
 //! authors : Engin Kartal contributors
 //! license : MIT
 //! https://yellowpages.com.tr
 
+
+//#### ARRAY ### \\
 
 /**
  * The array_pluck function will pluck a list of the given key / value pairs from the array
@@ -49,3 +51,31 @@ Array.prototype.stringToObjectId = function(){
     }
     return a;
 }
+
+
+//#### STRING ### \\
+
+/**
+ * string_slug
+ * value string
+ * separator string default -
+ * return new string slug
+ */
+function string_slug(value,separator="-"){
+
+// Convert all dashes/underscores into separator
+    var flip = separator == '-' ? '_' : '-';
+    value=value.toLowerCase().trim();
+    value = value.replace(flip, separator);
+
+// Remove all characters that are not the separator, letters, numbers, or whitespace.
+    value = value.toLowerCase().replace(new RegExp('[^a-z0-9' + separator + '\\s]', 'g'), '');
+
+// Replace all separator characters and whitespace by a single separator
+    value = value.replace(new RegExp('[' + separator + '\\s]+', 'g'), separator);
+
+    value= value.replace(new RegExp('^[' + separator + '\\s]+|[' + separator + '\\s]+$', 'g'),'');
+
+    return value;
+}
+
