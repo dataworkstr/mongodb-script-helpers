@@ -61,12 +61,18 @@ Array.prototype.stringToObjectId = function(){
  * separator string default -
  * return new string slug
  */
-function string_slug(value,separator="-"){
+function string_slug(value,separator = '-'){
 
 // Convert all dashes/underscores into separator
     var flip = separator == '-' ? '_' : '-';
     value=value.toLowerCase().trim();
     value = value.replace(flip, separator);
+
+    var from = "ŞSİIÇCÜUÖOĞGşsiıçcüuöoğg·/_,:;";
+    var to   = "ssiiccuuooggssiiccuuoogg------";
+    for (var i=0; i<from.length; i++) {
+        value = value.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+    }
 
 // Remove all characters that are not the separator, letters, numbers, or whitespace.
     value = value.toLowerCase().replace(new RegExp('[^a-z0-9' + separator + '\\s]', 'g'), '');
